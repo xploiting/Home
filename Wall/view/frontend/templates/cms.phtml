@@ -1,0 +1,53 @@
+<style>
+    
+    .modal-footer {
+    display: none;
+}
+
+#custom-popup-modal strong{
+    text-transform:capitalize;
+}
+    
+</style>
+
+<?php 
+
+    $text = $block->displayText();
+
+
+     echo "<div id='custom-popup-modal' style='display:block'>
+    <h1> $text,</h1>
+    <h2>Surf on thousands of offers.</h2>
+    <a href='http://xploiting.com'>Continue</a>
+    </div>";
+
+
+?>
+<script>
+require(
+    [
+        'jquery',
+        'Magento_Ui/js/modal/modal'
+    ],
+    function(
+        $,
+        modal
+    ) {
+        var options = {
+            type: 'popup',
+            responsive: true,
+            innerScroll: true,
+            modalClass: 'custom-popup-modal',
+           
+        };
+
+        var popup = modal(options, $('#custom-popup-modal'));
+
+        $( document ).ready(function() {
+            $('#custom-popup-modal').modal('openModal');
+        });     
+    }
+);
+</script>
+
+
